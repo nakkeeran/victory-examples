@@ -28,7 +28,7 @@ class App extends React.Component {
             label="Time in microseconds"
             standalone={false}/>
 
-          <VictoryAxis
+          <VictoryAxis dependent
             style={_.merge({
               axis: {stroke: "orange", strokeWidth: 2},
               ticks: {stroke: "orange"},
@@ -39,7 +39,7 @@ class App extends React.Component {
             label="Low Frequency"
             standalone={false}/>
 
-          <VictoryAxis
+          <VictoryAxis dependent
             style={_.merge({
               axis: {stroke: "blue", strokeWidth: 2},
               ticks: {stroke: "blue"},
