@@ -1,5 +1,5 @@
-Victory Dual Axis Example
-=========================
+Victory Examples
+=================
 
 This is a quick example component that demonstrates composing victory components. It relies on [VictoryAxis](https://github.com/formidablelabs/victory-axis) and [VictoryLine](https://github.com/formidablelabs/victory-line)
 
@@ -17,6 +17,10 @@ The component renders:
 
 * This example is not original, it is based on an example implemented in Matlab. You can see the original [here](http://blogs.mathworks.com/loren/2013/03/27/multiple-y-axes/)
 
-p.s. You might notice that there's a lot of code hanging around here. That's because this project was started with a generator. [Check it out](https://github.com/formidablelabs/generator-formidable-react-component) It's overkill for this example, but it's all pretty handy if you need to write and test a real react component.
+## Development
 
+For more on the development environment, see [DEVELOPMENT](https://github.com/FormidableLabs/builder-victory-component/blob/master/dev/DEVELOPMENT.md) in the project builder archetype.
 
+## Contributing
+
+Please see [CONTRIBUTING](https://github.com/FormidableLabs/builder-victory-component/blob/master/dev/CONTRIBUTING.md) in the project builder archetype.

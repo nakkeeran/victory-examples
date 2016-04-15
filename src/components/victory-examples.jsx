@@ -1,8 +1,6 @@
 import React from "react";
 import Radium from "radium";
 
-
-@Radium
 class VictoryExamples extends React.Component {
   getStyles() {
     return {
@@ -32,4 +30,4 @@ VictoryExamples.propTypes = {
   color: React.PropTypes.string
 };
 
-export default VictoryExamples;
+export default Radium(VictoryExamples); // eslint-disable-line new-cap
