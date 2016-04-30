@@ -1,15 +1,17 @@
 /*global document:false*/
 import React from "react";
 import ReactDOM from "react-dom";
-import _ from "lodash";
-import {VictoryAxis} from "victory-axis";
-import {VictoryLine} from "victory-line";
+
+// VComponents
+import { VictoryAxis, VictoryLine } from "victory-chart";
 
 const style = {
   parent: {
-    width: 500,
-    height: 500,
-    margin: 50
+    boxSizing: "border-box",
+    display: "block",
+    width: "100%",
+    height: "100%",
+    padding: 50
   }
 };
 
@@ -17,44 +19,53 @@ class App extends React.Component {
   render() {
     return (
       <div className="demo">
-        <svg style={style.parent}>
+        <svg style={style.parent} viewBox="0 0 500 300">
           <VictoryAxis
-            style={_.merge({
-              axis: {strokeWidth: 2},
-              tickLabels: {fontSize: 12}
-            }, style)}
+            style={{
+              data: {
+                strokeWidth: 2
+              },
+              labels: {
+                fontSize: 16
+              }
+            }}
             orientation="bottom"
             domain={[0, 20]}
             label="Time in microseconds"
             standalone={false}/>
 
           <VictoryAxis dependent
-            style={_.merge({
+            style={{
               axis: {stroke: "orange", strokeWidth: 2},
               ticks: {stroke: "orange"},
               tickLabels: {fontSize: 12}
-            }, style)}
+            }}
             orientation="left"
             domain={[-200, 200]}
             label="Low Frequency"
             standalone={false}/>
 
           <VictoryAxis dependent
-            style={_.merge({
+            style={{
               axis: {stroke: "blue", strokeWidth: 2},
               ticks: {stroke: "blue"},
               tickLabels: {fontSize: 12}
-            }, style)}
+            }}
             orientation="right"
             domain={[-0.8, 0.8]}
             label="High Frequency"
             standalone={false}/>
 
           <VictoryLine
-            style={_.merge({
-              data: {stroke: "orange", strokeWidth: 2}
-            }, style)}
-            y={(x) => 200 * Math.exp(-0.05 * x) * Math.sin(x)}
+            style={{
+              data: {
+                stroke: "orange",
+                strokeWidth: 2
+              }
+            }}
+            y={(data) =>
+              200 * Math.exp(-0.05 * data.x) * Math.sin(data.x)
+            }
             interpolation="basis"
             domain={{
               x: [0, 20],
@@ -63,10 +74,14 @@ class App extends React.Component {
             standalone={false}/>
 
           <VictoryLine
-            style={_.merge({
-              data: {stroke: "blue", strokeWidth: 1}
-            }, style)}
-            y={(x) => 0.8 * Math.exp(-0.5 * x) * Math.sin(10 * x)}
+            style={{
+              data: {
+                stroke: "blue", strokeWidth: 1
+              }
+            }}
+            y={(data) =>
+              0.8 * Math.exp(-0.5 * data.x) * Math.sin(10 * data.x)
+            }
             interpolation="basis"
             samples={500}
             domain={{
@@ -75,6 +90,9 @@ class App extends React.Component {
             }}
             standalone={false}/>
         </svg>
+        <p>
+          This example is not original; it is based on <a href="http://blogs.mathworks.com/loren/2013/03/27/multiple-y-axes/">the Multipe Y Axes example implemented in MATLAB</a>.
+        </p>
       </div>
     );
   }

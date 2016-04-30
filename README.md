@@ -1,21 +1,21 @@
 Victory Examples
 =================
 
-This is a quick example component that demonstrates composing victory components. It relies on [VictoryAxis](https://github.com/formidablelabs/victory-axis) and [VictoryLine](https://github.com/formidablelabs/victory-line)
+Welcome to the next level of [Victory](github.com/FormidableLabs/victory)! If you are not already familiar, please get to know our [Victory Docs](http://formidable.com/open-source/victory/) first. More complicated examples will live here and will assume a basic understanding of Victory.
 
-Code lives in `demo/app.jsx`, and can be run like so:
+## Get Started
 
-```
-npm install
-npm run dev
-```
+1. Install the dependencies:
+  ```
+    npm install
+  ```
 
-The server runs on `localhost:3000`
+2. Run the examples with [builder](http://formidable.com/open-source/builder/):
+  ```
+    builder run dev
+  ```
 
-The component renders:
-![Default axis](frequency-graph.png)
-
-* This example is not original, it is based on an example implemented in Matlab. You can see the original [here](http://blogs.mathworks.com/loren/2013/03/27/multiple-y-axes/)
+3. Open your favorite browser at [localhost:3000](http://localhost:3000/).
 
 ## Development
 
