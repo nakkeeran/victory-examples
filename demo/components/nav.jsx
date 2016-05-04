@@ -59,24 +59,37 @@ class Nav extends React.Component {
       }
     };
   }
+
   render() {
     const styles = this.getStyles();
+
+    const links = [
+      ["multiple-axes", "Multiple Axes"],
+      ["custom-theme", "Custom Theme"],
+      ["custom-data-components", "Custom Data Components"]
+    ].map(link => {
+      return (
+        <li style={styles.listItem}>
+          {this.renderLink(link[0], link[1], styles)}
+        </li>
+      );
+    });
+
     return (
       <nav style={[styles.nav, this.props.style]}>
         <p style={styles.heading}>Tutorials: </p>
         <ul style={styles.list}>
-          <li style={styles.listItem}>
-            <RadiumLink to="multiple-axes" activeStyle={styles.active} style={styles.link}>
-              Multiple Axes
-            </RadiumLink>
-          </li>
-          <li style={styles.listItem}>
-            <RadiumLink to="custom-theme" activeStyle={styles.active} style={styles.link}>
-              Custom Theme
-            </RadiumLink>
-          </li>
+          {links}
         </ul>
       </nav>
+    );
+  }
+
+  renderLink(path, displayName, styles) {
+    return (
+      <RadiumLink to={path} activeStyle={styles.active} style={styles.link}>
+        {displayName}
+      </RadiumLink>
     );
   }
 }
