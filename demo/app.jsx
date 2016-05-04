@@ -10,6 +10,7 @@ const appHistory = useScroll(useRouterHistory(createBrowserHistory))();
 import Index from "./index";
 import MultipleAxes from "./tutorials/multiple-axes";
 import CustomTheme from "./tutorials/custom-theme";
+import CustomDataComponents from "./tutorials/custom-data-components";
 
 const content = document.getElementById("content");
 
@@ -18,6 +19,7 @@ render((
     <Route path="/" component={Index}>
       <Route path="multiple-axes" component={MultipleAxes} />
       <Route path="custom-theme" component={CustomTheme} />
+      <Route path="custom-data-components" component={CustomDataComponents} />
     </Route>
   </Router>
 ), content);
