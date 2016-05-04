@@ -1,24 +1,32 @@
-/*global document:false*/
 import React from "react";
 import Radium from "radium";
 
 // VComponents
 import { VictoryAxis, VictoryLine } from "victory-chart";
 
-const styles = {
-  parent: {
-    boxSizing: "border-box",
-    display: "block",
-    width: "100%",
-    height: "100%",
-    padding: 50
-  }
-};
-
 class MultipleAxes extends React.Component {
+  getStyles() {
+    return {
+      parent: {
+        boxSizing: "border-box",
+        display: "block",
+        width: "100%",
+        height: "100%",
+        padding: 50
+      },
+      copy: {
+        maxWidth: "37em"
+      }
+    };
+  }
+
   render() {
+    const styles = this.getStyles();
+
+    /* eslint-disable max-len */
     return (
       <div>
+        <h1>Multiple Axes</h1>
         <svg style={styles.parent} viewBox="0 0 500 300">
           <VictoryAxis
             style={{
@@ -32,7 +40,8 @@ class MultipleAxes extends React.Component {
             orientation="bottom"
             domain={[0, 20]}
             label="Time in microseconds"
-            standalone={false}/>
+            standalone={false}
+          />
 
           <VictoryAxis dependent
             style={{
@@ -43,7 +52,8 @@ class MultipleAxes extends React.Component {
             orientation="left"
             domain={[-200, 200]}
             label="Low Frequency"
-            standalone={false}/>
+            standalone={false}
+          />
 
           <VictoryAxis dependent
             style={{
@@ -54,7 +64,8 @@ class MultipleAxes extends React.Component {
             orientation="right"
             domain={[-0.8, 0.8]}
             label="High Frequency"
-            standalone={false}/>
+            standalone={false}
+          />
 
           <VictoryLine
             style={{
@@ -71,7 +82,8 @@ class MultipleAxes extends React.Component {
               x: [0, 20],
               y: [-200, 200]
             }}
-            standalone={false}/>
+            standalone={false}
+          />
 
           <VictoryLine
             style={{
@@ -88,14 +100,16 @@ class MultipleAxes extends React.Component {
               x: [0, 20],
               y: [-0.8, 0.8]
             }}
-            standalone={false}/>
+            standalone={false}
+          />
         </svg>
-        <p>
+        <p style={styles.copy} className="Copy">
           This example is not original; it is based on <a href="http://blogs.mathworks.com/loren/2013/03/27/multiple-y-axes/">the Multipe Y Axes example implemented in MATLAB</a>.
         </p>
       </div>
     );
+    /* eslint-enable max-len */
   }
 }
 
-export default Radium(MultipleAxes);
+export default Radium(MultipleAxes); // eslint-disable-line new-cap
