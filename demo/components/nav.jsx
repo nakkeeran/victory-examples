@@ -69,7 +69,7 @@ class Nav extends React.Component {
       ["custom-data-components", "Custom Data Components"]
     ].map(link => {
       return (
-        <li style={styles.listItem}>
+        <li key={link[0]} style={styles.listItem}>
           {this.renderLink(link[0], link[1], styles)}
         </li>
       );
