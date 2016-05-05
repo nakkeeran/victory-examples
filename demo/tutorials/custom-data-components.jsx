@@ -51,6 +51,44 @@ class CustomDataComponents extends React.Component {
               ticks: {stroke: "none"}
             }}
           />
+          <VictoryLine
+            standalone={false}
+            domain={{
+              x: [0, 6],
+              y: [0, 350]
+            }}
+            data={[
+              {x: 0, y: 230},
+              {x: 1, y: 220},
+              {x: 2, y: 320},
+              {x: 3, y: 235},
+              {x: 4, y: 115},
+              {x: 5, y: 130},
+              {x: 6, y: 50}
+            ]}
+            style={{
+              data: {stroke: "blue"}
+            }}
+          />
+          <VictoryLine
+            standalone={false}
+            domain={{
+              x: [0, 6],
+              y: [0, 350]
+            }}
+            data={[
+              {x: 0, y: 145},
+              {x: 1, y: 100},
+              {x: 2, y: 120},
+              {x: 3, y: 95},
+              {x: 4, y: 80},
+              {x: 5, y: 45},
+              {x: 6, y: 120}
+            ]}
+            style={{
+              data: {stroke: "orange"}
+            }}
+          />
         </svg>
       </div>
     );
