@@ -6,50 +6,190 @@ import { VictoryAxis, VictoryLine } from "victory-chart";
 import { VictoryLabel } from "victory-core";
 
 class MultipleAxes extends React.Component {
+  getDataSetOne() {
+    return [
+      {x: new Date(2000, 1, 1), y: 12},
+      {x: new Date(2000, 2, 1), y: 10},
+      {x: new Date(2000, 3, 1), y: 11},
+      {x: new Date(2001, 1, 1), y: 5},
+      {x: new Date(2002, 1, 1), y: 4},
+      {x: new Date(2003, 1, 1), y: 6},
+      {x: new Date(2004, 1, 1), y: 5},
+      {x: new Date(2005, 1, 1), y: 7},
+      {x: new Date(2006, 1, 1), y: 8},
+      {x: new Date(2007, 1, 1), y: 9},
+      {x: new Date(2008, 1, 1), y: -8.5},
+      {x: new Date(2009, 1, 1), y: -9},
+      {x: new Date(2010, 1, 1), y: 5},
+      {x: new Date(2013, 1, 1), y: 1},
+      {x: new Date(2014, 1, 1), y: 2},
+      {x: new Date(2015, 1, 1), y: -5}
+    ];
+  }
+
+  getDataSetTwo() {
+    return [
+      {x: new Date(2000, 1, 1), y: 5},
+      {x: new Date(2003, 1, 1), y: 6},
+      {x: new Date(2004, 1, 1), y: 4},
+      {x: new Date(2005, 1, 1), y: 10},
+      {x: new Date(2006, 1, 1), y: 12},
+      {x: new Date(2007, 2, 1), y: 48},
+      {x: new Date(2008, 1, 1), y: 19},
+      {x: new Date(2009, 1, 1), y: 31},
+      {x: new Date(2011, 1, 1), y: 49},
+      {x: new Date(2014, 1, 1), y: 40},
+      {x: new Date(2015, 1, 1), y: 21}
+    ];
+  }
+
   getStyles() {
+    const BABY_BLUE_COLOR = "#ccdee8";
+    const BLUE_COLOR = "#00a3de";
+    const RED_COLOR = "#7c270b";
+
     return {
       parent: {
         boxSizing: "border-box",
-        display: "block",
+        display: "inline",
+        padding: "70px 10px 20px 10px",
+        backgroundColor: BABY_BLUE_COLOR,
+        fontFamily: "'Fira Sans', sans-serif",
         width: "100%",
-        height: "100%",
-        padding: 50
+        height: "auto"
+      },
+      axisYears: {
+        axis: {
+          stroke: "black",
+          strokeWidth: 1
+        },
+        ticks: {
+          size: 10,
+          /*
+          TODO: Adjust tick size based on whether the year is divisible by 5.
+          I believe the following should work (but it does not):
+          ticks: {
+            size: (tick) => {
+              const tickSize = tick.getFullYear() % 5 === 0 ? 10 : 5;
+              return tickSize;
+            }
+          */
+          stroke: "black",
+          strokeWidth: 1
+        },
+        tickLabels: {
+          fill: "black",
+          fontFamily: "inherit",
+          fontSize: 12
+        }
+      },
+      // DATA SET ONE
+      axisOne: {
+        axis: {
+          stroke: BLUE_COLOR,
+          strokeWidth: 0
+        },
+        ticks: {
+          size: 350,
+          /*
+          TODO: Do not show a tick for the start of the domain
+          size: (tick) => tick == "-10" ? 0 : 350,
+          */
+          stroke: "#ffffff",
+          strokeWidth: 2
+        },
+        tickLabels: {
+          fill: BLUE_COLOR,
+          fontFamily: "inherit",
+          fontSize: 12
+        }
+      },
+      labelOne: {
+        fill: BLUE_COLOR,
+        fontFamily: "inherit",
+        fontSize: "12px",
+        fontStyle: "italic"
+      },
+      lineOne: {
+        data: {
+          stroke: BLUE_COLOR,
+          strokeWidth: 3
+        }
+      },
+      // DATA SET TWO
+      axisTwo: {
+        axis: {
+          stroke: RED_COLOR,
+          strokeWidth: 0
+        },
+        ticks: {
+          stroke: "#ffffff",
+          strokeWidth: 2
+        },
+        tickLabels: {
+          fill: RED_COLOR,
+          fontFamily: "inherit",
+          fontSize: 12
+        }
+      },
+      labelTwo: {
+        fill: RED_COLOR,
+        fontFamily: "inherit",
+        fontSize: "12px",
+        fontStyle: "italic"
+      },
+      lineTwo: {
+        data: {
+          stroke: RED_COLOR,
+          strokeWidth: 3
+        }
+      },
+      // HORIZONTAL LINE
+      lineThree: {
+        data: {
+          stroke: "#e95f46",
+          strokeWidth: 2
+        }
       }
     };
   }
 
   render() {
     const styles = this.getStyles();
-    const blueColor = "#00a3de";
+    const dataSetOne = this.getDataSetOne();
+    const dataSetTwo = this.getDataSetTwo();
 
     return (
       <div>
         <h1>Custom Theme</h1>
-
-        <svg style={styles.parent} viewBox="0 0 500 300">
-          <VictoryAxis
+        <svg style={styles.parent} viewBox="0 0 450 300">
+          <VictoryLabel
+            x={25} y={-15}
+            textAnchor="start"
+            verticalAnchor="start"
+            lineHeight={1.2}
             style={{
-              data: {
-                strokeWidth: 2
-              },
-              labels: {
-                fontSize: 16
-              }
+              fill: "#000000",
+              fontFamily: "inherit",
+              fontSize: "18px",
+              fontWeight: "bold"
             }}
-            orientation="bottom"
-            domain={[0, 20]}
-            label="Years"
+          >
+            {"An outlook"}
+          </VictoryLabel>
+
+          <VictoryAxis dependent
+            style={styles.axisOne}
+            orientation="left"
+            domain={[-10, 15]}
             standalone={false}
+            offsetX={400}
           />
 
           <VictoryAxis dependent
-            style={{
-              axis: {stroke: blueColor, strokeWidth: 2},
-              ticks: {stroke: blueColor},
-              tickLabels: {fontSize: 12}
-            }}
-            orientation="left"
-            domain={[-10, 15]}
+            style={styles.axisTwo}
+            orientation="right"
+            domain={[0, 50]}
             standalone={false}
           />
 
@@ -57,32 +197,93 @@ class MultipleAxes extends React.Component {
             x={25} y={40}
             textAnchor="start"
             verticalAnchor="end"
-            lineHeight={1}
-            style={{
-              fill: blueColor,
-              fontSize: "12px",
-              fontStyle: "italic"
-            }}
+            lineHeight={1.2}
+            style={styles.labelOne}
           >
-            {"GDP \n % change on a year earlier"}
+            {"Economy \n % change on a year earlier"}
           </VictoryLabel>
 
-          <VictoryAxis dependent
-            style={{
-              axis: {stroke: "blue", strokeWidth: 2},
-              ticks: {stroke: "blue"},
-              tickLabels: {fontSize: 12}
+          <VictoryLabel
+            x={425} y={40}
+            textAnchor="end"
+            verticalAnchor="end"
+            lineHeight={1.2}
+            style={styles.labelTwo}
+          >
+            {"Dinosaur exports\n $bn"}
+          </VictoryLabel>
+
+          <VictoryAxis
+            style={styles.axisYears}
+            orientation="bottom"
+            standalone={false}
+            scale="time"
+            tickCount={4}
+            tickValues={[
+              new Date(1999, 1, 1),
+              new Date(2000, 1, 1),
+              new Date(2001, 1, 1),
+              new Date(2002, 1, 1),
+              new Date(2003, 1, 1),
+              new Date(2004, 1, 1),
+              new Date(2005, 1, 1),
+              new Date(2006, 1, 1),
+              new Date(2007, 1, 1),
+              new Date(2008, 1, 1),
+              new Date(2009, 1, 1),
+              new Date(2010, 1, 1),
+              new Date(2011, 1, 1),
+              new Date(2012, 1, 1),
+              new Date(2013, 1, 1),
+              new Date(2014, 1, 1),
+              new Date(2015, 1, 1),
+              new Date(2016, 1, 1)
+            ]}
+            tickFormat={
+              (x) => {
+                if (x.getFullYear() === 2000) {
+                  return x.getFullYear();
+                }
+                if (x.getFullYear() % 5 === 0) {
+                  return x.getFullYear().toString().slice(2);
+                }
+              }
+            }
+          />
+
+          <VictoryLine
+            data={[
+              {x: new Date(2000, 1, 1), y: 0},
+              {x: new Date(2014, 1, 1), y: 0}
+            ]}
+            domain={{
+              x: [new Date(2000, 1, 1), new Date(2015, 1, 1)],
+              y: [-10, 15]
             }}
-            orientation="right"
-            domain={[-0.8, 0.8]}
-            label="High Frequency"
             standalone={false}
+            style={styles.lineThree}
           />
+
           <VictoryLine
+            data={dataSetOne}
+            domain={{
+              x: [new Date(2000, 1, 1), new Date(2015, 1, 1)],
+              y: [-10, 15]
+            }}
+            interpolation="linear"
             standalone={false}
+            style={styles.lineOne}
           />
+
           <VictoryLine
+            data={dataSetTwo}
+            domain={{
+              x: [new Date(2000, 1, 1), new Date(2015, 1, 1)],
+              y: [0, 50]
+            }}
+            interpolation="linear"
             standalone={false}
+            style={styles.lineTwo}
           />
         </svg>
       </div>

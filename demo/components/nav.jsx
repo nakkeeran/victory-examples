@@ -49,12 +49,12 @@ class Nav extends React.Component {
         }
       },
       active: {
-        border: "none",
+        borderBottom: "none",
         boxShadow: "none",
         color: VictorySettings.whiteSand,
         cursor: "default",
         ":hover": {
-          border: "none"
+          borderBottom: "none"
         }
       }
     };
