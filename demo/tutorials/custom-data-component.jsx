@@ -25,8 +25,10 @@ class CustomPie extends React.Component {
           width={pieWidth}
           data={datum.pie}
           style={{
-            labels: {fontSize: 0}
+            labels: {fontSize: 0},
+            data: {stroke: "none"}
           }}
+          colorScale={["#f77", "#55e", "#8af"]}
         />
       </g>
     );
