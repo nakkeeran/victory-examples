@@ -8,6 +8,30 @@ import {
   VictoryLine,
   VictoryScatter
 } from "victory-chart";
+import { VictoryPie } from "victory-pie";
+
+class CustomPie extends React.Component {
+  render() {
+    const {datum, position} = this.props;
+    const pieWidth = 75;
+
+    return(
+      <g transform={
+        `translate(${position.x - pieWidth / 2}, ${position.y - pieWidth / 2})`
+      }>
+        <VictoryPie
+          standalone={false}
+          height={pieWidth}
+          width={pieWidth}
+          data={datum.pie}
+          style={{
+            labels: {fontSize: 0}
+          }}
+        />
+      </g>
+    );
+  }
+}
 
 class CustomDataComponent extends React.Component {
   getStyles() {
@@ -24,20 +48,30 @@ class CustomDataComponent extends React.Component {
 
   render() {
     const styles = this.getStyles();
+
     const data = [
-      {x: 1, y: 30},
-      {x: 2, y: 32},
-      {x: 3, y: 65},
-      {x: 4, y: 38},
-      {x: 5, y: 50},
-      {x: 6, y: 47},
-      {x: 7, y: 38},
-      {x: 8, y: 48},
-      {x: 9, y: 80},
+      {x: 1,  y: 30},
+      {x: 2,  y: 32},
+      {x: 3,  y: 65},
+      {x: 4,  y: 38},
+      {x: 5,  y: 50},
+      {x: 6,  y: 47},
+      {x: 7,  y: 38},
+      {x: 8,  y: 48},
+      {x: 9,  y: 80},
       {x: 10, y: 73},
       {x: 11, y: 76},
       {x: 12, y: 100}
     ];
+
+    const pieData = data.map(datum => {
+      datum.pie = [
+        {x: "Lions",  y: Math.round(Math.random() * 10)},
+        {x: "Tigers", y: Math.round(Math.random() * 10)},
+        {x: "Bears",  y: Math.round(Math.random() * 10)}
+      ];
+      return datum;
+    });
 
     return (
       <div>
@@ -67,17 +101,18 @@ class CustomDataComponent extends React.Component {
               }}
             />
 
-          <VictoryScatter
-            data={data}
-          />
+            <VictoryLine
+              data={pieData}
+              style={{
+                data: {strokeWidth: 1}
+              }}
+            />
 
-          <VictoryLine
-            data={data}
-            style={{
-              data: {strokeWidth: 1}
-            }}
-          />
-        </VictoryChart>
+            <VictoryScatter
+              data={pieData}
+              dataComponent={<CustomPie />}
+            />
+          </VictoryChart>
         </svg>
       </div>
     );
