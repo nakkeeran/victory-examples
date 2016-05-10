@@ -75,6 +75,11 @@ class Nav extends React.Component {
               Custom Theme
             </RadiumLink>
           </li>
+          <li style={styles.listItem}>
+            <RadiumLink to="custom-data-component" activeStyle={styles.active} style={styles.link}>
+              Custom Data Component
+            </RadiumLink>
+          </li>
         </ul>
       </nav>
     );
