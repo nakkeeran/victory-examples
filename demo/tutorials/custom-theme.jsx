@@ -69,11 +69,7 @@ class MultipleAxes extends React.Component {
           strokeWidth: 1
         },
         ticks: {
-          // size: 10,
-          size: (tick) => {
-            const tickSize = tick.getFullYear() % 5 === 0 ? 10 : 5;
-            return tickSize;
-          },
+          size: 10,
           /*
           TODO: Adjust tick size based on whether the year is divisible by 5.
           I believe the following should work (but it does not):
@@ -89,28 +85,26 @@ class MultipleAxes extends React.Component {
         tickLabels: {
           fill: "black",
           fontFamily: "inherit",
-          fontSize: 12
+          fontSize: 14
         }
       },
       // DATA SET ONE
       axisOne: {
+        grid: {
+          stroke: (tick) => tick === -10 ? "transparent" : "#ffffff",
+          strokeWidth: 2
+        },
         axis: {
           stroke: BLUE_COLOR,
           strokeWidth: 0
         },
         ticks: {
-          size: 350,
-          /*
-          TODO: Do not show a tick for the start of the domain
-          size: (tick) => tick == "-10" ? 0 : 350,
-          */
-          stroke: "#ffffff",
-          strokeWidth: 2
+          strokeWidth: 0
         },
         tickLabels: {
           fill: BLUE_COLOR,
           fontFamily: "inherit",
-          fontSize: 12
+          fontSize: 14
         }
       },
       labelOne: {
@@ -132,19 +126,18 @@ class MultipleAxes extends React.Component {
           strokeWidth: 0
         },
         ticks: {
-          stroke: "#ffffff",
-          strokeWidth: 2
+          strokeWidth: 0
         },
         tickLabels: {
           fill: RED_COLOR,
           fontFamily: "inherit",
-          fontSize: 12
+          fontSize: 14
         }
       },
       labelTwo: {
         fill: RED_COLOR,
         fontFamily: "inherit",
-        fontSize: "12px",
+        fontSize: 14,
         fontStyle: "italic"
       },
       lineTwo: {
@@ -227,7 +220,7 @@ class MultipleAxes extends React.Component {
               orientation="left"
               domain={[-10, 15]}
               standalone={false}
-              offsetX={400}
+              offsetX={0}
             />
 
             <VictoryAxis dependent
@@ -277,11 +270,11 @@ class MultipleAxes extends React.Component {
 
             <VictoryLine
               data={[
-                {x: new Date(2000, 1, 1), y: 0},
-                {x: new Date(2014, 1, 1), y: 0}
+                {x: new Date(1999, 1, 1), y: 0},
+                {x: new Date(2014, 4, 1), y: 0}
               ]}
               domain={{
-                x: [new Date(2000, 1, 1), new Date(2015, 1, 1)],
+                x: [new Date(1999, 1, 1), new Date(2016, 1, 1)],
                 y: [-10, 15]
               }}
               standalone={false}
@@ -291,7 +284,7 @@ class MultipleAxes extends React.Component {
             <VictoryLine
               data={dataSetOne}
               domain={{
-                x: [new Date(2000, 1, 1), new Date(2015, 1, 1)],
+                x: [new Date(1999, 1, 1), new Date(2016, 1, 1)],
                 y: [-10, 15]
               }}
               interpolation="linear"
@@ -302,7 +295,7 @@ class MultipleAxes extends React.Component {
             <VictoryLine
               data={dataSetTwo}
               domain={{
-                x: [new Date(2000, 1, 1), new Date(2015, 1, 1)],
+                x: [new Date(1999, 1, 1), new Date(2016, 1, 1)],
                 y: [0, 50]
               }}
               interpolation="linear"
