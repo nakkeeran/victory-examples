@@ -85,7 +85,7 @@ class MultipleAxes extends React.Component {
         tickLabels: {
           fill: "black",
           fontFamily: "inherit",
-          fontSize: 14
+          fontSize: 16
         }
       },
       // DATA SET ONE
@@ -104,20 +104,26 @@ class MultipleAxes extends React.Component {
         tickLabels: {
           fill: BLUE_COLOR,
           fontFamily: "inherit",
-          fontSize: 14
+          fontSize: 16
         }
       },
       labelOne: {
         fill: BLUE_COLOR,
         fontFamily: "inherit",
-        fontSize: "12px",
+        fontSize: 12,
         fontStyle: "italic"
       },
       lineOne: {
         data: {
           stroke: BLUE_COLOR,
-          strokeWidth: 3
+          strokeWidth: 4.5
         }
+      },
+      axisOneCustomLabel: {
+        fill: BLUE_COLOR,
+        fontFamily: "inherit",
+        fontWeight: 300,
+        fontSize: 21
       },
       // DATA SET TWO
       axisTwo: {
@@ -131,19 +137,19 @@ class MultipleAxes extends React.Component {
         tickLabels: {
           fill: RED_COLOR,
           fontFamily: "inherit",
-          fontSize: 14
+          fontSize: 16
         }
       },
       labelTwo: {
         fill: RED_COLOR,
         fontFamily: "inherit",
-        fontSize: 14,
+        fontSize: 12,
         fontStyle: "italic"
       },
       lineTwo: {
         data: {
           stroke: RED_COLOR,
-          strokeWidth: 3
+          strokeWidth: 4.5
         }
       },
       // HORIZONTAL LINE
@@ -164,6 +170,7 @@ class MultipleAxes extends React.Component {
     return (
       <div>
         <h1>Custom Theme</h1>
+        <br/>
         <svg style={styles.parent} viewBox="0 0 450 350">
           <rect x="0" y="0" width="10" height="30" fill="#f01616"/>
 
@@ -215,26 +222,49 @@ class MultipleAxes extends React.Component {
           </VictoryLabel>
 
           <g transform={"translate(0, 40)"}>
+            <VictoryLabel
+              x={37} y={161}
+              textAnchor="middle"
+              verticalAnchor="end"
+              lineHeight={1}
+              style={styles.axisOneCustomLabel}
+            >
+              {"+"}
+            </VictoryLabel>
+
+            <VictoryLabel
+              x={37} y={199}
+              textAnchor="middle"
+              verticalAnchor="end"
+              lineHeight={1}
+              style={styles.axisOneCustomLabel}
+            >
+              {"-"}
+            </VictoryLabel>
+
             <VictoryAxis dependent
-              style={styles.axisOne}
-              orientation="left"
               domain={[-10, 15]}
-              standalone={false}
               offsetX={0}
+              orientation="left"
+              standalone={false}
+              style={styles.axisOne}
+              tickFormat={
+                (x) => { return Math.abs(x).toString(); }
+              }
             />
 
             <VictoryAxis dependent
-              style={styles.axisTwo}
-              orientation="right"
               domain={[0, 50]}
+              orientation="right"
               standalone={false}
+              style={styles.axisTwo}
             />
 
             <VictoryAxis
-              style={styles.axisYears}
               orientation="bottom"
-              standalone={false}
               scale="time"
+              standalone={false}
+              style={styles.axisYears}
               tickCount={4}
               tickValues={[
                 new Date(1999, 1, 1),
@@ -277,6 +307,7 @@ class MultipleAxes extends React.Component {
                 x: [new Date(1999, 1, 1), new Date(2016, 1, 1)],
                 y: [-10, 15]
               }}
+              scale={{x: "time", y: "linear"}}
               standalone={false}
               style={styles.lineThree}
             />
@@ -288,6 +319,7 @@ class MultipleAxes extends React.Component {
                 y: [-10, 15]
               }}
               interpolation="linear"
+              scale={{x: "time", y: "linear"}}
               standalone={false}
               style={styles.lineOne}
             />
@@ -299,6 +331,7 @@ class MultipleAxes extends React.Component {
                 y: [0, 50]
               }}
               interpolation="linear"
+              scale={{x: "time", y: "linear"}}
               standalone={false}
               style={styles.lineTwo}
             />
