@@ -180,7 +180,6 @@ class MultipleAxes extends React.Component {
             x={430} y={27}
             textAnchor="middle"
             verticalAnchor="end"
-            lineHeight={1}
             style={styles.labelNumber}
           >
             {"1"}
@@ -203,7 +202,6 @@ class MultipleAxes extends React.Component {
 
           <VictoryLabel
             x={25} y={70}
-            textAnchor="start"
             verticalAnchor="end"
             lineHeight={1.2}
             style={styles.labelOne}
@@ -226,7 +224,6 @@ class MultipleAxes extends React.Component {
               x={37} y={161}
               textAnchor="middle"
               verticalAnchor="end"
-              lineHeight={1}
               style={styles.axisOneCustomLabel}
             >
               {"+"}
@@ -236,7 +233,6 @@ class MultipleAxes extends React.Component {
               x={37} y={199}
               textAnchor="middle"
               verticalAnchor="end"
-              lineHeight={1}
               style={styles.axisOneCustomLabel}
             >
               {"-"}
@@ -261,11 +257,9 @@ class MultipleAxes extends React.Component {
             />
 
             <VictoryAxis
-              orientation="bottom"
               scale="time"
               standalone={false}
               style={styles.axisYears}
-              tickCount={4}
               tickValues={[
                 new Date(1999, 1, 1),
                 new Date(2000, 1, 1),
@@ -318,7 +312,6 @@ class MultipleAxes extends React.Component {
                 x: [new Date(1999, 1, 1), new Date(2016, 1, 1)],
                 y: [-10, 15]
               }}
-              interpolation="linear"
               scale={{x: "time", y: "linear"}}
               standalone={false}
               style={styles.lineOne}
