@@ -295,7 +295,7 @@ class MultipleAxes extends React.Component {
             <VictoryLine
               data={[
                 {x: new Date(1999, 1, 1), y: 0},
-                {x: new Date(2014, 4, 1), y: 0}
+                {x: new Date(2014, 6, 1), y: 0}
               ]}
               domain={{
                 x: [new Date(1999, 1, 1), new Date(2016, 1, 1)],
