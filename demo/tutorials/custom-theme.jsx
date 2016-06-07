@@ -9,8 +9,8 @@ class MultipleAxes extends React.Component {
   getDataSetOne() {
     return [
       {x: new Date(2000, 1, 1), y: 12},
-      {x: new Date(2000, 2, 1), y: 10},
-      {x: new Date(2000, 3, 1), y: 11},
+      {x: new Date(2000, 6, 1), y: 10},
+      {x: new Date(2000, 12, 1), y: 11},
       {x: new Date(2001, 1, 1), y: 5},
       {x: new Date(2002, 1, 1), y: 4},
       {x: new Date(2003, 1, 1), y: 6},
@@ -312,6 +312,7 @@ class MultipleAxes extends React.Component {
                 x: [new Date(1999, 1, 1), new Date(2016, 1, 1)],
                 y: [-10, 15]
               }}
+              interpolation="monotoneX"
               scale={{x: "time", y: "linear"}}
               standalone={false}
               style={styles.lineOne}
@@ -323,7 +324,7 @@ class MultipleAxes extends React.Component {
                 x: [new Date(1999, 1, 1), new Date(2016, 1, 1)],
                 y: [0, 50]
               }}
-              interpolation="linear"
+              interpolation="monotoneX"
               scale={{x: "time", y: "linear"}}
               standalone={false}
               style={styles.lineTwo}
