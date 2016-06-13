@@ -29,25 +29,6 @@ class CentralAxis extends React.Component {
         <h1>Custom Central Axis</h1>
         <svg style={styles.parent} viewBox="0 0 500 300">
 
-          <VictoryAxis dependentAxis
-            style={{
-              axis: {strokeWidth: 1}
-            }}
-            offsetX={264.75}
-            standalone={false}
-            tickValues={[
-              "Smartphone",
-              "Laptop",
-              "Television",
-              "Tablet",
-              "Fitness Monitor",
-              "Smartwatch",
-              "Connected Surveillance Camera",
-              "Smart Thermostat",
-              "Personal Drones"
-            ]}
-          />
-
           <VictoryStack horizontal
             height={300}
             style={{
@@ -88,6 +69,26 @@ class CentralAxis extends React.Component {
               labels={(data) => (`${Math.abs(data.y)}%`)}
             />
           </VictoryStack>
+
+          <VictoryAxis dependentAxis
+            style={{
+              axis: {strokeWidth: 1, stroke: "transparent"},
+              ticks: {stroke: "transparent"}
+            }}
+            offsetX={264.75}
+            standalone={false}
+            tickValues={[
+              "Smartphone",
+              "Laptop",
+              "Television",
+              "Tablet",
+              "Fitness Monitor",
+              "Smartwatch",
+              "Connected Surveillance Camera",
+              "Smart Thermostat",
+              "Personal Drones"
+            ]}
+          />
         </svg>
         {/*<p style={styles.copy} className="Copy">
                   This example is not original; it is based on <a href="http://blogs.mathworks.com/loren/2013/03/27/multiple-y-axes/">the Multipe Y Axes example implemented in MATLAB</a>.
