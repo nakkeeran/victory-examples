@@ -33,8 +33,7 @@ class CentralAxis extends React.Component {
             style={{
               axis: {strokeWidth: 1}
             }}
-            domain={[0, 500]}
-            offsetX={261}
+            offsetX={264.75}
             standalone={false}
             tickValues={[
               "Smartphone",
@@ -50,9 +49,9 @@ class CentralAxis extends React.Component {
           />
 
           <VictoryStack horizontal
-            height={400}
+            height={300}
             style={{
-              data: {width: 30},
+              data: {width: 20},
               labels: {fontSize: 11}
             }}
           >
