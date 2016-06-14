@@ -69,16 +69,10 @@ class MultipleAxes extends React.Component {
           strokeWidth: 1
         },
         ticks: {
-          size: 10,
-          /*
-          TODO: Adjust tick size based on whether the year is divisible by 5.
-          I believe the following should work (but it does not):
-          ticks: {
-            size: (tick) => {
-              const tickSize = tick.getFullYear() % 5 === 0 ? 10 : 5;
-              return tickSize;
-            }
-          */
+          size: (tick) => {
+            const tickSize = tick.getFullYear() % 5 === 0 ? 10 : 5;
+            return tickSize;
+          },
           stroke: "black",
           strokeWidth: 1
         },
