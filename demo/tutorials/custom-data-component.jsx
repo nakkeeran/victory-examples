@@ -12,12 +12,12 @@ import { VictoryPie } from "victory-pie";
 
 class CustomPie extends React.Component {
   render() {
-    const {datum, position} = this.props;
+    const {datum, x, y} = this.props;
     const pieWidth = 75;
 
     return(
       <g transform={
-        `translate(${position.x - pieWidth / 2}, ${position.y - pieWidth / 2})`
+        `translate(${x - pieWidth / 2}, ${y - pieWidth / 2})`
       }>
         <VictoryPie
           standalone={false}
