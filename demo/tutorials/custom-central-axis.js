@@ -3,34 +3,27 @@ import Radium from "radium";
 
 // VComponents
 import { VictoryAxis, VictoryBar, VictoryStack } from "victory-chart";
+import { VictoryLabel } from "victory-core";
 
 class CentralAxis extends React.Component {
-  getStyles() {
-    return {
-      parent: {
-        boxSizing: "border-box",
-        display: "block",
-        width: "100%",
-        height: "100%",
-        padding: 50
-      },
-      copy: {
-        maxWidth: "37em"
-      }
-    };
-  }
-
   render() {
-    const styles = this.getStyles();
-
-    /* eslint-disable max-len */
     return (
       <div>
         <h1>Custom Central Axis</h1>
-        <svg style={styles.parent} viewBox="0 0 500 300">
+        <svg style={{width: "100%", height: "auto"}} viewBox="0 0 500 300">
 
           <VictoryStack horizontal
+            /* setting a symmetric domain makes it much easier to center the axis */
+            domain={{x: [-60, 60]}}
+            /*
+              When not using two adjacent Victory components without a wrapper component
+              like VictoryChart or VictoryStack width, height and padding padding must be
+              set in top level component so that they match up with each other.
+            */
             height={300}
+            width={500}
+            padding={50}
+            standalone={false}
             style={{
               data: {width: 20},
               labels: {fontSize: 11}
@@ -71,12 +64,22 @@ class CentralAxis extends React.Component {
           </VictoryStack>
 
           <VictoryAxis dependentAxis
+            height={300}
+            width={500}
+            padding={50}
             style={{
-              axis: {strokeWidth: 1, stroke: "transparent"},
+              axis: {stroke: "transparent"},
               ticks: {stroke: "transparent"},
-              tickLabels: {WebkitTransform: "translateX(30px)", fontSize: 5, fill: "black"}
+              tickLabels: {fontSize: 7, fill: "black"}
             }}
-            offsetX={264.75}
+            /*
+              Use a custom tickLabelComponent with an absolutely positioned x value
+              to position your tick labels in the center of the chart. The correct
+              y values are still provided by VictoryAxis for each tick
+            */
+            tickLabelComponent={
+              <VictoryLabel x={250} textAnchor="middle" verticalAnchor="middle"/>
+            }
             standalone={false}
             tickValues={[
               "Smartphone",
@@ -93,7 +96,6 @@ class CentralAxis extends React.Component {
         </svg>
       </div>
     );
-    /* eslint-enable max-len */
   }
 }
 
