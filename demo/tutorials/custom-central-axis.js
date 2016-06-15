@@ -45,7 +45,7 @@ class CentralAxis extends React.Component {
                 {x: "Tablet", y: 38},
                 {x: "Fitness Monitor", y: 12},
                 {x: "Smartwatch", y: 12},
-                {x: "Connected Surveillance Camera", y: 10},
+                {x: "Surveillance Camera", y: 10},
                 {x: "Smart Thermostat", y: 9},
                 {x: "Personal Drones", y: 6}
               ]}
@@ -62,7 +62,7 @@ class CentralAxis extends React.Component {
                 {x: "Tablet", y: 29},
                 {x: "Fitness Monitor", y: 13},
                 {x: "Smartwatch", y: 13},
-                {x: "Connected Surveillance Camera", y: 11},
+                {x: "Surveillance Camera", y: 11},
                 {x: "Smart Thermostat", y: 9},
                 {x: "Personal Drones", y: 7}
               ]}
@@ -73,7 +73,8 @@ class CentralAxis extends React.Component {
           <VictoryAxis dependentAxis
             style={{
               axis: {strokeWidth: 1, stroke: "transparent"},
-              ticks: {stroke: "transparent"}
+              ticks: {stroke: "transparent"},
+              tickLabels: {WebkitTransform: "translateX(30px)", fontSize: 5, fill: "black"}
             }}
             offsetX={264.75}
             standalone={false}
@@ -84,15 +85,12 @@ class CentralAxis extends React.Component {
               "Tablet",
               "Fitness Monitor",
               "Smartwatch",
-              "Connected Surveillance Camera",
+              "Surveillance Camera",
               "Smart Thermostat",
               "Personal Drones"
             ]}
           />
         </svg>
-        {/*<p style={styles.copy} className="Copy">
-                  This example is not original; it is based on <a href="http://blogs.mathworks.com/loren/2013/03/27/multiple-y-axes/">the Multipe Y Axes example implemented in MATLAB</a>.
-                </p>*/}
       </div>
     );
     /* eslint-enable max-len */
