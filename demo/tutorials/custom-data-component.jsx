@@ -11,14 +11,21 @@ import {
 import { VictoryPie } from "victory-pie";
 
 class CustomPie extends React.Component {
+  static propTypes = {
+    datum: React.PropTypes.object,
+    x: React.PropTypes.object,
+    y: React.PropTypes.object
+  };
+
   render() {
     const {datum, x, y} = this.props;
     const pieWidth = 75;
 
-    return(
+    return (
       <g transform={
         `translate(${x - pieWidth / 2}, ${y - pieWidth / 2})`
-      }>
+        }
+      >
         <VictoryPie
           standalone={false}
           height={pieWidth}
@@ -52,25 +59,25 @@ class CustomDataComponent extends React.Component {
     const styles = this.getStyles();
 
     const data = [
-      {x: 1,  y: 30},
-      {x: 2,  y: 32},
-      {x: 3,  y: 65},
-      {x: 4,  y: 38},
-      {x: 5,  y: 50},
-      {x: 6,  y: 47},
-      {x: 7,  y: 38},
-      {x: 8,  y: 48},
-      {x: 9,  y: 80},
+      {x: 1, y: 30},
+      {x: 2, y: 32},
+      {x: 3, y: 65},
+      {x: 4, y: 38},
+      {x: 5, y: 50},
+      {x: 6, y: 47},
+      {x: 7, y: 38},
+      {x: 8, y: 48},
+      {x: 9, y: 80},
       {x: 10, y: 73},
       {x: 11, y: 76},
       {x: 12, y: 100}
     ];
 
-    const pieData = data.map(datum => {
+    const pieData = data.map((datum) => {
       datum.pie = [
-        {x: "Lions",  y: Math.round(Math.random() * 10)},
+        {x: "Lions", y: Math.round(Math.random() * 10)},
         {x: "Tigers", y: Math.round(Math.random() * 10)},
-        {x: "Bears",  y: Math.round(Math.random() * 10)}
+        {x: "Bears", y: Math.round(Math.random() * 10)}
       ];
       return datum;
     });
@@ -121,4 +128,4 @@ class CustomDataComponent extends React.Component {
   }
 }
 
-export default Radium(CustomDataComponent);
+export default Radium(CustomDataComponent); //eslint-disable-line new-cap

@@ -13,8 +13,12 @@
     "url": "https://github.com/boygirl/victory-examples/issues"
   },
   "homepage": "https://github.com/boygirl/victory-examples",
+  "engineStrict": true,
+  "engines": {
+    "npm": ">=3.0.0"
+  },
   "scripts": {
-    "postinstall": "cd lib || builder run npm:postinstall || (echo 'POSTINSTALL FAILED: If using npm v2, please upgrade to npm v3. See bug https://github.com/FormidableLabs/builder/issues/35' && exit 1)",
+    "postinstall": "cd lib || builder run npm:postinstall",
     "preversion": "builder run npm:preversion",
     "start": "builder run hot",
     "test": "builder run check",
@@ -23,19 +27,19 @@
   },
   "dependencies": {
     "builder": "~2.9.1",
-    "builder-victory-component": "^2.1.4",
+    "builder-victory-component": "^2.1.7",
+    "radium": "^0.17.1",
     "victory-chart": "^9.1.2",
     "victory-pie": "^4.0.0"
   },
   "devDependencies": {
-    "builder-victory-component-dev": "^2.1.4",
+    "builder-victory-component-dev": "^2.1.7",
     "chai": "^3.2.0",
-    "formidable-landers": "^1.0.2",
+    "formidable-landers": "^2.0.0",
     "history": "~1.17.0",
     "lodash": "^4.12.0",
     "mocha": "^2.2.5",
     "opener": "^1.4.1",
-    "radium": "^0.17.1",
     "react-router": "^2.4.0",
     "react": "~15.1.0",
     "react-addons-test-utils": "~15.1.0",

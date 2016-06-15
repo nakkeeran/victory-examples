@@ -1,3 +1,5 @@
-module.exports = {
-  VictoryExamples: require("./components/victory-examples")
+import VictoryExamples from "./components/victory-examples";
+
+export {
+  VictoryExamples
 };
