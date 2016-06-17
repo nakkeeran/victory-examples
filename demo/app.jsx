@@ -1,11 +1,9 @@
 /*global document:false*/
 import React from "react";
 import { render } from "react-dom";
-import { Router, Route, useRouterHistory } from "react-router";
 // When navigating routes, do not retain scroll position
-import createBrowserHistory from "history/lib/createBrowserHistory";
-import useScroll from "scroll-behavior/lib/useStandardScroll";
-const appHistory = useScroll(useRouterHistory(createBrowserHistory))();
+import { Router, Route, applyRouterMiddleware, browserHistory } from "react-router";
+import useScroll from "react-router-scroll";
 // Routes
 import Index from "./index";
 import MultipleAxesDemo from "./examples/multiple-axes";
@@ -16,7 +14,10 @@ import CentralAxisDemo from "./examples/custom-central-axis";
 const content = document.getElementById("content");
 
 render((
-  <Router history={appHistory}>
+  <Router
+    history={browserHistory}
+    render={applyRouterMiddleware(useScroll())}
+  >
     <Route path="/" component={Index}>
       <Route path="multiple-axes" component={MultipleAxesDemo} />
       <Route path="custom-styles" component={CustomStylesDemo} />
