@@ -7,8 +7,7 @@ import ReactDOM from "react-dom";
 import Radium from "radium";
 import Playground from "component-playground";
 // Scope
-import { VictoryAxis, VictoryLine } from "victory-chart";
-import { VictoryLabel } from "victory-core";
+import { VictoryAxis, VictoryLine, VictoryLabel } from "victory";
 // Example Source
 import CustomTheme from "../../src/components/custom-theme";
 import Example from "raw!./source.example";

@@ -29,8 +29,7 @@
     "builder": "~2.9.1",
     "builder-victory-component": "^2.1.8",
     "radium": "^0.17.1",
-    "victory-chart": "^9.1.2",
-    "victory-pie": "^4.0.0"
+    "victory": "0.9.0"
   },
   "devDependencies": {
     "builder-victory-component-dev": "^2.1.8",

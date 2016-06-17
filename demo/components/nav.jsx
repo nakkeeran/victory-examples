@@ -85,6 +85,11 @@ class Nav extends React.Component {
               Custom Central Axis
             </RadiumLink>
           </li>
+          <li style={styles.listItem}>
+            <RadiumLink to="tooltip" activeStyle={styles.active} style={styles.link}>
+              Tooltip
+            </RadiumLink>
+          </li>
         </ul>
       </nav>
     );

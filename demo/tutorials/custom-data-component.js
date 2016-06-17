@@ -6,15 +6,15 @@ import {
   VictoryAxis,
   VictoryChart,
   VictoryLine,
-  VictoryScatter
-} from "victory-chart";
-import { VictoryPie } from "victory-pie";
+  VictoryScatter,
+  VictoryPie
+} from "victory";
 
 class CustomPie extends React.Component {
   static propTypes = {
     datum: React.PropTypes.object,
-    x: React.PropTypes.object,
-    y: React.PropTypes.object
+    x: React.PropTypes.number,
+    y: React.PropTypes.number
   };
 
   render() {
