@@ -17,14 +17,16 @@ class Docs extends React.Component {
   render() {
     return (
       <div className="playgroundsMaxHeight">
-        <div className="Interactive">
-          <Playground
-            codeText={Example}
-            scope={{React, ReactDOM, CustomTheme, VictoryAxis, VictoryLine, VictoryLabel}}
-            noRender={false}
-            theme="elegant"
-          />
-        </div>
+        <pre>
+          <div className="Interactive">
+            <Playground
+              codeText={Example}
+              scope={{React, ReactDOM, CustomTheme, VictoryAxis, VictoryLine, VictoryLabel}}
+              noRender={false}
+              theme="elegant"
+            />
+          </div>
+        </pre>
       </div>
     );
   }
