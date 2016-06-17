@@ -10,7 +10,7 @@ import Playground from "component-playground";
 import { VictoryAxis, VictoryLine } from "victory-chart";
 import { VictoryLabel } from "victory-core";
 // Example Source
-import CustomStyles from "../../src/components/custom-theme";
+import CustomStyles from "../../src/components/custom-styles";
 import Example from "raw!./source.example";
 
 class CustomStylesTutorial extends React.Component {
