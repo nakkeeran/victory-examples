@@ -10,18 +10,20 @@ import Playground from "component-playground";
 import { VictoryAxis, VictoryLine } from "victory-chart";
 import { VictoryLabel } from "victory-core";
 // Example Source
-import CustomTheme from "../../src/components/custom-theme";
+import CustomStyles from "../../src/components/custom-theme";
 import Example from "raw!./source.example";
 
-class Docs extends React.Component {
+class CustomStylesTutorial extends React.Component {
   render() {
     return (
       <div className="playgroundsMaxHeight">
+        <h1>Custom Styles</h1>
+        <p>The following chart has multiple axes, a time axes, and a very specific look.</p>
         <pre>
           <div className="Interactive">
             <Playground
               codeText={Example}
-              scope={{React, ReactDOM, CustomTheme, VictoryAxis, VictoryLine, VictoryLabel}}
+              scope={{React, ReactDOM, CustomStyles, VictoryAxis, VictoryLine, VictoryLabel}}
               noRender={false}
               theme="elegant"
             />
@@ -32,4 +34,4 @@ class Docs extends React.Component {
   }
 }
 
-export default Radium(Docs); //eslint-disable-line new-cap
+export default Radium(CustomStylesTutorial); //eslint-disable-line new-cap
