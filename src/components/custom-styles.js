@@ -2,8 +2,7 @@ import React from "react";
 import Radium from "radium";
 
 // VComponents
-import { VictoryAxis, VictoryLine } from "victory-chart";
-import { VictoryLabel } from "victory-core";
+import { VictoryAxis, VictoryLine, VictoryLabel } from "victory";
 
 class MultipleAxes extends React.Component {
   getDataSetOne() {

@@ -2,8 +2,7 @@ import React from "react";
 import Radium from "radium";
 
 // VComponents
-import { VictoryAxis, VictoryBar, VictoryStack } from "victory-chart";
-import { VictoryLabel } from "victory-core";
+import { VictoryAxis, VictoryBar, VictoryStack, VictoryLabel } from "victory";
 
 class CentralAxis extends React.Component {
   render() {
