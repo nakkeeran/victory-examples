@@ -1,27 +1,28 @@
 /*global document:false*/
 import React from "react";
 import { render } from "react-dom";
-import { Router, Route, useRouterHistory } from "react-router";
 // When navigating routes, do not retain scroll position
-import createBrowserHistory from "history/lib/createBrowserHistory";
-import useScroll from "scroll-behavior/lib/useStandardScroll";
-const appHistory = useScroll(useRouterHistory(createBrowserHistory))();
+import { Router, Route, applyRouterMiddleware, browserHistory } from "react-router";
+import useScroll from "react-router-scroll";
 // Routes
 import Index from "./index";
-import MultipleAxes from "./tutorials/multiple-axes";
-import CustomTheme from "./tutorials/custom-theme";
-import CustomDataComponent from "./tutorials/custom-data-component";
-import CentralAxis from "./tutorials/custom-central-axis";
+import MultipleAxesDemo from "./examples/multiple-axes";
+import CustomStylesDemo from "./examples/custom-styles";
+import CustomDataComponentDemo from "./examples/custom-data-component";
+import CentralAxisDemo from "./examples/custom-central-axis";
 
 const content = document.getElementById("content");
 
 render((
-  <Router history={appHistory}>
+  <Router
+    history={browserHistory}
+    render={applyRouterMiddleware(useScroll())}
+  >
     <Route path="/" component={Index}>
-      <Route path="multiple-axes" component={MultipleAxes} />
-      <Route path="custom-theme" component={CustomTheme} />
-      <Route path="custom-data-component" component={CustomDataComponent} />
-      <Route path="custom-central-axis" component={CentralAxis} />
+      <Route path="multiple-axes" component={MultipleAxesDemo} />
+      <Route path="custom-styles" component={CustomStylesDemo} />
+      <Route path="custom-data-component" component={CustomDataComponentDemo} />
+      <Route path="custom-central-axis" component={CentralAxisDemo} />
     </Route>
   </Router>
 ), content);

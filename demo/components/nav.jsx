@@ -71,8 +71,8 @@ class Nav extends React.Component {
             </RadiumLink>
           </li>
           <li style={styles.listItem}>
-            <RadiumLink to="custom-theme" activeStyle={styles.active} style={styles.link}>
-              Custom Theme
+            <RadiumLink to="custom-styles" activeStyle={styles.active} style={styles.link}>
+              Custom Styles
             </RadiumLink>
           </li>
           <li style={styles.listItem}>

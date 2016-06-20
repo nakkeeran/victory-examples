@@ -63,7 +63,8 @@ class MultipleAxes extends React.Component {
         },
         ticks: {
           size: (tick) => {
-            const tickSize = tick.getFullYear() % 5 === 0 ? 10 : 5;
+            const tickSize =
+              tick.getFullYear() % 5 === 0 ? 10 : 5;
             return tickSize;
           },
           stroke: "black",
@@ -78,7 +79,8 @@ class MultipleAxes extends React.Component {
       // DATA SET ONE
       axisOne: {
         grid: {
-          stroke: (tick) => tick === -10 ? "transparent" : "#ffffff",
+          stroke: (tick) =>
+            tick === -10 ? "transparent" : "#ffffff",
           strokeWidth: 2
         },
         axis: {
@@ -156,10 +158,25 @@ class MultipleAxes extends React.Component {
 
     return (
       <div>
-        <svg style={styles.parent} viewBox="0 0 450 350">
-          <rect x="0" y="0" width="10" height="30" fill="#f01616"/>
+        <svg
+          style={styles.parent}
+          viewBox="0 0 450 350"
+        >
+          <rect
+            x="0"
+            y="0"
+            width="10"
+            height="30"
+            fill="#f01616"
+          />
 
-          <rect x="420" y="10" width="20" height="20" fill="#458ca8" />
+          <rect
+            x="420"
+            y="10"
+            width="20"
+            height="20"
+            fill="#458ca8"
+          />
 
           <VictoryLabel
             x={430} y={27}
