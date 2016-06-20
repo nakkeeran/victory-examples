@@ -83,47 +83,43 @@ class CustomDataComponent extends React.Component {
     });
 
     return (
-      <div>
-        <h1>Custom Data Component</h1>
+      <svg style={styles.parent} viewBox="0 0 500 300">
+        <VictoryChart domain={{x: [1, 12], y: [0, 100]}}>
+          <VictoryAxis
+            tickValues={[
+              "Jan",
+              "Feb",
+              "Mar",
+              "Apr",
+              "May",
+              "June",
+              "July",
+              "Aug",
+              "Sep",
+              "Oct",
+              "Nov",
+              "Dec"
+            ]}
+            style={{
+              axis: {strokeWidth: 1},
+              ticks: {strokeWidth: 1},
+              tickLabels: {fontSize: 8}
+            }}
+          />
 
-        <svg style={styles.parent} viewBox="0 0 500 300">
-          <VictoryChart domain={{x: [1, 12], y: [0, 100]}}>
-            <VictoryAxis
-              tickValues={[
-                "Jan",
-                "Feb",
-                "Mar",
-                "Apr",
-                "May",
-                "June",
-                "July",
-                "Aug",
-                "Sep",
-                "Oct",
-                "Nov",
-                "Dec"
-              ]}
-              style={{
-                axis: {strokeWidth: 1},
-                ticks: {strokeWidth: 1},
-                tickLabels: {fontSize: 8}
-              }}
-            />
+          <VictoryLine
+            data={pieData}
+            style={{
+              data: {strokeWidth: 1}
+            }}
+          />
 
-            <VictoryLine
-              data={pieData}
-              style={{
-                data: {strokeWidth: 1}
-              }}
-            />
-
-            <VictoryScatter
-              data={pieData}
-              dataComponent={<CustomPie />}
-            />
-          </VictoryChart>
-        </svg>
-      </div>
+          <VictoryScatter
+            data={pieData}
+            dataComponent={<CustomPie />}
+          />
+        </VictoryChart>
+      </svg>
     );
   }
 }

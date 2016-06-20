@@ -1,3 +1,9 @@
+import React from "react";
+import Radium from "radium";
+
+// VComponents
+import { VictoryAxis, VictoryLine, VictoryLabel } from "victory";
+
 class MultipleAxes extends React.Component {
   getDataSetOne() {
     return [
@@ -321,4 +327,4 @@ class MultipleAxes extends React.Component {
   }
 }
 
-ReactDOM.render(<MultipleAxes/>, mountNode)
+export default Radium(MultipleAxes); // eslint-disable-line new-cap

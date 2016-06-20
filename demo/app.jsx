@@ -1,24 +1,29 @@
 /*global document:false*/
 import React from "react";
 import { render } from "react-dom";
-import { Router, Route, hashHistory } from "react-router";
+// When navigating routes, do not retain scroll position
+import { Router, Route, applyRouterMiddleware, browserHistory } from "react-router";
+import useScroll from "react-router-scroll";
 // Routes
 import Index from "./index";
-import MultipleAxes from "./tutorials/multiple-axes";
-import CustomTheme from "./tutorials/custom-theme";
-import CustomDataComponent from "./tutorials/custom-data-component";
-import CentralAxis from "./tutorials/custom-central-axis";
-import Tooltip from "./tutorials/tooltip";
+import MultipleAxesDemo from "./examples/multiple-axes";
+import CustomStylesDemo from "./examples/custom-styles";
+import CustomDataComponentDemo from "./examples/custom-data-component";
+import CentralAxisDemo from "./examples/custom-central-axis";
+import Tooltip from "./examples/tooltip";
 
 const content = document.getElementById("content");
 
 render((
-  <Router history={hashHistory}>
+  <Router
+    history={browserHistory}
+    render={applyRouterMiddleware(useScroll())}
+  >
     <Route path="/" component={Index}>
-      <Route path="multiple-axes" component={MultipleAxes} />
-      <Route path="custom-theme" component={CustomTheme} />
-      <Route path="custom-data-component" component={CustomDataComponent} />
-      <Route path="custom-central-axis" component={CentralAxis} />
+      <Route path="multiple-axes" component={MultipleAxesDemo} />
+      <Route path="custom-styles" component={CustomStylesDemo} />
+      <Route path="custom-data-component" component={CustomDataComponentDemo} />
+      <Route path="custom-central-axis" component={CentralAxisDemo} />
       <Route path="tooltip" component={Tooltip} />
     </Route>
   </Router>

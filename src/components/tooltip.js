@@ -84,8 +84,6 @@ class Tooltip extends React.Component {
     const styles = this.getStyles();
     return (
       <div>
-        <h1>Tooltip Example</h1>
-
           <VictoryChart
             style={styles.parent}
           >
