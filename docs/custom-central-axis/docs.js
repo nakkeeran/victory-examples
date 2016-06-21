@@ -7,17 +7,15 @@ import ReactDOM from "react-dom";
 import Radium from "radium";
 import Playground from "component-playground";
 // Scope
-import { VictoryAxis, VictoryLine } from "victory-chart";
-import { VictoryLabel } from "victory-core";
+import { VictoryAxis, VictoryBar, VictoryStack, VictoryLabel } from "victory";
 // Example Source
 import Example from "raw!./source.example";
 
-class CustomStylesTutorial extends React.Component {
+class CustomCentralAxisTutorial extends React.Component {
   render() {
     return (
       <div className="Ecology playgroundsMaxHeight">
-        <h1>Custom Styles</h1>
-        <p>The following chart has multiple axes, a time axis, and a very specific look.</p>
+        <h1>Custom Central Axis</h1>
         <pre>
           <div className="Interactive">
             <Playground
@@ -26,7 +24,8 @@ class CustomStylesTutorial extends React.Component {
                 React,
                 ReactDOM,
                 VictoryAxis,
-                VictoryLine,
+                VictoryBar,
+                VictoryStack,
                 VictoryLabel
               }}
               noRender={false}
@@ -39,4 +38,4 @@ class CustomStylesTutorial extends React.Component {
   }
 }
 
-export default Radium(CustomStylesTutorial); //eslint-disable-line new-cap
+export default Radium(CustomCentralAxisTutorial); //eslint-disable-line new-cap
