@@ -16,9 +16,9 @@ import Example from "raw!./source.example";
 class CustomStylesTutorial extends React.Component {
   render() {
     return (
-      <div className="playgroundsMaxHeight">
+      <div className="Ecology playgroundsMaxHeight">
         <h1>Custom Styles</h1>
-        <p>The following chart has multiple axes, a time axes, and a very specific look.</p>
+        <p>The following chart has multiple axes, a time axis, and a very specific look.</p>
         <pre>
           <div className="Interactive">
             <Playground

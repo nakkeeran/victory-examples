@@ -17,7 +17,9 @@ const App = React.createClass({
     return (
       <StyleRoot>
         <ul>
-          <li><Link to="/custom-theme">Custom Theme</Link></li>
+          <li><Link to="/custom-central-axis">Custom Central Axis</Link></li>
+          <li><Link to="/custom-styles">Custom Styles</Link></li>
+          <li><Link to="/tooltip">Tooltip</Link></li>
         </ul>
         {this.props.children}
         <Style rules={VictoryTheme}/>
