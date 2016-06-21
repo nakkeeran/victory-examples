@@ -23,7 +23,8 @@
     "start": "builder run hot",
     "test": "builder run check",
     "version": "builder run npm:version && git add dist && git commit -m \"Commit 'dist/' for publishing\"",
-    "docs-build-static": "echo 'Static docs generation for victory-examples is not supported"
+    "docs-build-static": "echo 'Static docs generation for victory-examples is not supported",
+    "docs-dev": "webpack-dev-server --port 3000 --config node_modules/builder-victory-component/config/webpack/docs/webpack.config.dev.js --history-api-fallback --content-base docs"
   },
   "dependencies": {
     "builder": "~2.9.1",
@@ -34,7 +35,7 @@
   "devDependencies": {
     "builder-victory-component-dev": "^2.1.8",
     "chai": "^3.2.0",
-    "formidable-landers": "^2.0.0",
+    "formidable-landers": "^2.0.2",
     "history": "~1.17.0",
     "lodash": "^4.12.0",
     "mocha": "^2.2.5",
