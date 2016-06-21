@@ -1,4 +1,4 @@
-class MultipleAxes extends React.Component {
+class CustomTheme extends React.Component {
   getDataSetOne() {
     return [
       {x: new Date(2000, 1, 1), y: 12},
@@ -338,4 +338,4 @@ class MultipleAxes extends React.Component {
   }
 }
 
-ReactDOM.render(<MultipleAxes/>, mountNode)
+ReactDOM.render(<CustomTheme/>, mountNode)

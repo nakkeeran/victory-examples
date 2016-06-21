@@ -15,7 +15,6 @@ import {
   VictoryLabel
 } from "victory";
 // Example Source
-import TooltipSource from "../../src/components/tooltip";
 import Example from "raw!./source.example";
 
 class TooltipTutorial extends React.Component {
@@ -35,7 +34,6 @@ class TooltipTutorial extends React.Component {
                 {
                   React,
                   ReactDOM,
-                  TooltipSource,
                   VictoryChart,
                   VictoryArea,
                   VictoryAxis,

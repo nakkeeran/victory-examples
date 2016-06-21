@@ -9,7 +9,6 @@ import Playground from "component-playground";
 // Scope
 import { VictoryAxis, VictoryBar, VictoryStack, VictoryLabel } from "victory";
 // Example Source
-import CustomCentralAxisSource from "../../src/components/custom-central-axis";
 import Example from "raw!./source.example";
 
 class CustomCentralAxisTutorial extends React.Component {
@@ -21,17 +20,14 @@ class CustomCentralAxisTutorial extends React.Component {
           <div className="Interactive">
             <Playground
               codeText={Example}
-              scope={
-                {
-                  React,
-                  ReactDOM,
-                  CustomCentralAxisSource,
-                  VictoryAxis,
-                  VictoryBar,
-                  VictoryStack,
-                  VictoryLabel
-                }
-              }
+              scope={{
+                React,
+                ReactDOM,
+                VictoryAxis,
+                VictoryBar,
+                VictoryStack,
+                VictoryLabel
+              }}
               noRender={false}
               theme="elegant"
             />

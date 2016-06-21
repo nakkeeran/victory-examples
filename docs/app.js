@@ -18,7 +18,9 @@ const App = React.createClass({
       <StyleRoot>
         <ul>
           <li><Link to="/custom-central-axis">Custom Central Axis</Link></li>
+          <li><Link to="/custom-data-component">Custom Data Component</Link></li>
           <li><Link to="/custom-styles">Custom Styles</Link></li>
+          <li><Link to="/multiple-axes">Multiple Axes</Link></li>
           <li><Link to="/tooltip">Tooltip</Link></li>
         </ul>
         {this.props.children}

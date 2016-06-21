@@ -9,6 +9,7 @@ import useScroll from "react-router-scroll";
 // Routes
 import App from "./app";
 import CustomCentralAxis from "./custom-central-axis/docs";
+import CustomDataComponent from "./custom-data-component/docs";
 import CustomStyles from "./custom-styles/docs";
 import Tooltip from "./tooltip/docs";
 
@@ -21,6 +22,7 @@ render((
   >
     <Route path="/" component={App}>
       <Route path="custom-central-axis" component={CustomCentralAxis}/>
+      <Route path="custom-data-component" component={CustomDataComponent}/>
       <Route path="custom-styles" component={CustomStyles}/>
       <Route path="tooltip" component={Tooltip}/>
     </Route>
