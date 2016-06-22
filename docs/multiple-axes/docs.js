@@ -18,7 +18,7 @@ class MultipleAxesTutorial extends React.Component {
   /* eslint-disable max-len */
   render() {
     return (
-      <div className="Ecology playgroundsMaxHeight">
+      <div className="Recipe">
         <h1>Multiple Axes</h1>
         <pre>
           <div className="Interactive">

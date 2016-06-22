@@ -21,7 +21,7 @@ class CustomDataComponentTutorial extends React.Component {
   /* eslint-disable max-len */
   render() {
     return (
-      <div className="Ecology playgroundsMaxHeight">
+      <div className="Recipe">
         <h1>Custom Data Component</h1>
         <pre>
           <div className="Interactive">
