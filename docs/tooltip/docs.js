@@ -21,7 +21,7 @@ class TooltipTutorial extends React.Component {
   /* eslint-disable max-len */
   render() {
     return (
-      <div className="Ecology playgroundsMaxHeight">
+      <div className="Recipe">
         <h1>Tooltip</h1>
         <p>
           A custom tooltip is achieved by creating a <code>Flyout</code> React component and passing it as <code>labelComponent</code> to <code>VictoryScatter</code>.

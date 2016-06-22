@@ -14,7 +14,7 @@ import Example from "raw!./source.example";
 class CustomCentralAxisTutorial extends React.Component {
   render() {
     return (
-      <div className="Ecology playgroundsMaxHeight">
+      <div className="Recipe">
         <h1>Custom Central Axis</h1>
         <pre>
           <div className="Interactive">
