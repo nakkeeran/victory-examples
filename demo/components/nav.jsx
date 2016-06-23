@@ -90,6 +90,11 @@ class Nav extends React.Component {
               Tooltip
             </RadiumLink>
           </li>
+          <li style={styles.listItem}>
+            <RadiumLink to="shared-events" activeStyle={styles.active} style={styles.link}>
+              Shared Events
+            </RadiumLink>
+          </li>
         </ul>
       </nav>
     );
