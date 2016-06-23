@@ -160,6 +160,16 @@ class SharedEvents extends React.Component {
                         }
                       }
                     ];
+                  },
+                  onMouseOut: () => {
+                    return [
+                      {
+                        target: "labels",
+                        mutation: () => {
+                          return {text: ""};
+                        }
+                      }
+                    ];
                   }
                 }
               }
