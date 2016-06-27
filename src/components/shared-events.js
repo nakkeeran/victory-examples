@@ -3,111 +3,87 @@ import Radium from "radium";
 import { merge } from "lodash";
 
 // VComponents
-import { VictoryBar, VictoryStack, VictoryLine,
+import { VictoryBar, VictoryLine, VictoryAxis,
 VictorySharedEvents } from "victory";
 
 class SharedEvents extends React.Component {
   render() {
     const parentStyle = {border: "1px solid #ccc", margin: "2%", maxWidth: "40%"};
-    const data = [{x: 1, y: 1}, {x: 2, y: 2}, {x: 3, y: 3}, {x: 4, y: 4}];
+    const lineData = [
+      {x: 1, y: 39},
+      {x: 2, y: 31},
+      {x: 3, y: 43},
+      {x: 4, y: 54},
+      {x: 5, y: 50}
+    ];
+    const barData = [
+      {x: 1, y: 12, label: "Jan 2010"},
+      {x: 2, y: 13, label: "Apr 2010"},
+      {x: 3, y: 81, label: "Jul 2010"},
+      {x: 4, y: 49, label: "Oct 2010"},
+      {x: 5, y: 30, label: "Jan 2011"},
+      {x: 6, y: 29, label: "Apr 2011"},
+      {x: 7, y: 13, label: "Jul 2011"},
+      {x: 8, y: 53, label: "Oct 2011"},
+      {x: 9, y: 24, label: "Jan 2012"},
+      {x: 10, y: 68, label: "Apr 2012"},
+      {x: 11, y: 52, label: "Jul 2012"},
+      {x: 12, y: 29, label: "Oct 2012"},
+      {x: 13, y: 27, label: "Jan 2013"},
+      {x: 14, y: 100, label: "Apr 2013"},
+      {x: 15, y: 10, label: "Jul 2013"},
+      {x: 16, y: 77, label: "Oct 2013"},
+      {x: 17, y: 76, label: "Jan 2014"},
+      {x: 18, y: 61, label: "Apr 2014"},
+      {x: 19, y: 48, label: "Jul 2014"},
+      {x: 20, y: 15, label: "Oct 2014"}
+    ];
     return (
-      <div>
-        {/**
-        * Shared events can be implemented using the VictorySharedEvents component
-        * to wrap the chart components that should share events.
-        */}
           <svg width={1000} height={600} style={{parent: parentStyle}}>
             <VictorySharedEvents
               events={[
                 {
-                  childName: "firstBar",
+                  childName: "bar",
                   target: "data",
-                  eventKey: 0,
                   eventHandlers: {
-                    onClick: () => {
-                      return {
-                        target: "labels",
-                        eventKey: 0,
-                        mutation: () => {
-                          return {text: "HEY"};
-                        }
-                      };
-                    }
-                  }
-                },
-                {
-                  childName: "firstBar",
-                  target: "data",
-                  eventKey: 1,
-                  eventHandlers: {
-                    onClick: () => {
+                    onMouseOver: () => {
                       return [
                         {
-                          childName: "secondBar",
+                          childName: "line",
                           mutation: (props) => {
-                            return {style: merge({}, props.style, {fill: "blue"})};
+                            return {style: merge({}, props.style, {stroke: "blue"})};
+                          }
+                        },
+                        {
+                          mutation: (props) => {
+                            return {style: merge({}, props.style, {fill: "gold"})};
                           }
                         },
                         {
                           target: "labels",
-                          eventKey: 1,
-                          mutation: () => {
-                            return {text: "WHAT'S"};
+                          mutation: (props) => {
+                            return {style: merge({}, props.style, {fill: "black"})};
                           }
                         }
                       ];
-                    }
-                  }
-                },
-                {
-                  childName: "firstBar",
-                  target: "data",
-                  eventKey: 2,
-                  eventHandlers: {
-                    onClick: () => {
-                      return {
-                        target: "labels",
-                        eventKey: 2,
-                        mutation: () => {
-                          return {text: "UP"};
-                        }
-                      };
-                    }
-                  }
-                },
-                {
-                  childName: "firstBar",
-                  target: "data",
-                  eventKey: 3,
-                  eventHandlers: {
-                    onClick: () => {
-                      return {
-                        target: "labels",
-                        eventKey: 3,
-                        mutation: () => {
-                          return {text: "HELLO"};
-                        }
-                      };
-                    }
-                  }
-                },
-                {
-                  childName: "secondBar",
-                  target: "data",
-                  eventKey: 0,
-                  eventHandlers: {
-                    onClick: () => {
+                    },
+                    onMouseOut: () => {
                       return [
                         {
-                          childName: "firstBar",
+                          childName: "line",
                           mutation: (props) => {
-                            return props.style.fill === "cyan" ? null :
-                              {style: merge({}, props.style, {fill: "purple"})};
+                            return {style: merge({}, props.style, {stroke: "transparent"})};
                           }
                         },
                         {
                           mutation: (props) => {
-                            return {style: merge({}, props.style, {fill: "orange"})};
+                            return {style: merge({}, props.style, {fill: "tomato"})};
+                          }
+                        },
+                        {
+                          target: "labels",
+                          mutation: (props) => {
+                            return {style: merge({}, props.style, {fill: "transparent"})};
                           }
                         }
                       ];
@@ -117,70 +93,31 @@ class SharedEvents extends React.Component {
               ]}
             >
               <VictoryBar
-                name="firstBar"
-                style={{
-                  data: {width: 25, fill: "gold"}
-                }}
-                data={data}
+                name="bar"
+                width={900}
+                height={600}
+                data={barData}
+                style={{data: {fill: "tomato"}, labels: {fill: "transparent"}}}
+                standalone={false}
               />
-              <VictoryBar
-                name={"secondBar"}
-                data={data}
+              <VictoryLine
+                name={"line"}
+                data={lineData}
+                width={900}
+                height={600}
+                standalone={false}
+                domain={{y: [0, 100]}}
+                style={{data: {stroke: "transparent"}}}
+              />
+              <VictoryAxis
+                standalone={false}
+                width={900}
+                label="Year"
+                height={600}
+                tickValues={["2010", "2011", "2012", "2013", "2014", "2015"]}
               />
           </VictorySharedEvents>
         </svg>
-        {/**
-        * Shared events can also be implemented using wrapper components like
-        * VictoryChart, VictoryStack, and VictoryGroup, since they use shared events
-        * by default.
-        */}
-        <svg width={1000} height={600} style={{parent: parentStyle}}>
-          <VictoryStack
-            events={[
-              {
-                childName: "barOne",
-                target: "data",
-                eventHandlers: {
-                  onClick: () => {
-                    return [
-                      {
-                        childName: "line",
-                        mutation: (props) => {
-                          return {style: merge({}, props.style, {stroke: "blue"})};
-                        }
-                      }
-                    ];
-                  },
-                  onMouseOver: () => {
-                    return [
-                      {
-                        target: "labels",
-                        mutation: () => {
-                          return {text: "click me"};
-                        }
-                      }
-                    ];
-                  },
-                  onMouseOut: () => {
-                    return [
-                      {
-                        target: "labels",
-                        mutation: () => {
-                          return {text: ""};
-                        }
-                      }
-                    ];
-                  }
-                }
-              }
-            ]}
-          >
-            <VictoryBar data={data}/>
-            <VictoryBar name="barOne"/>
-            <VictoryLine data={data} style={{data: {stroke: "transparent"}}} name="line"/>
-          </VictoryStack>
-        </svg>
-      </div>
     );
   }
 }
