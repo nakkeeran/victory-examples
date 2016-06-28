@@ -11,6 +11,7 @@ import CustomStylesDemo from "./examples/custom-styles";
 import CustomDataComponentDemo from "./examples/custom-data-component";
 import CentralAxisDemo from "./examples/custom-central-axis";
 import Tooltip from "./examples/tooltip";
+import CandlestickDashboard from "./examples/candlestick-dashboard";
 
 const content = document.getElementById("content");
 
@@ -25,6 +26,7 @@ render((
       <Route path="custom-data-component" component={CustomDataComponentDemo} />
       <Route path="custom-central-axis" component={CentralAxisDemo} />
       <Route path="tooltip" component={Tooltip} />
+      <Route path="candlestick-dashboard" component={CandlestickDashboard} />
     </Route>
   </Router>
 ), content);

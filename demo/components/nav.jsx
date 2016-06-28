@@ -90,6 +90,11 @@ class Nav extends React.Component {
               Tooltip
             </RadiumLink>
           </li>
+          <li style={styles.listItem}>
+            <RadiumLink to="candlestick-dashboard" activeStyle={styles.active} style={styles.link}>
+              Candlestick Dashboard
+            </RadiumLink>
+          </li>
         </ul>
       </nav>
     );
