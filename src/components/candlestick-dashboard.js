@@ -2,169 +2,169 @@ import React from "react";
 import Radium from "radium";
 
 // VComponents
-import { random } from "lodash";
+import { random, merge } from "lodash";
 import { VictoryAxis, VictoryBar, VictoryArea } from "victory";
 
 const dataSet = {
   week: [
     {
-      x: "Week 1", open: random(100, 400), close: random(100, 400),
+      x: "Week 1", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "Week 2", open: random(100, 400), close: random(100, 400),
+      x: "Week 2", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "Week 3", open: random(100, 400), close: random(100, 400),
+      x: "Week 3", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "Week 4", open: random(100, 400), close: random(100, 400),
+      x: "Week 4", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "Week 5", open: random(100, 400), close: random(100, 400),
+      x: "Week 5", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "Week 6", open: random(100, 400), close: random(100, 400),
+      x: "Week 6", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "Week 7", open: random(100, 400), close: random(100, 400),
+      x: "Week 7", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "Week 8", open: random(100, 400), close: random(100, 400),
+      x: "Week 8", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "Week 9", open: random(100, 400), close: random(100, 400),
+      x: "Week 9", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "Week 10", open: random(100, 400), close: random(100, 400),
+      x: "Week 10", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "Week 11", open: random(100, 400), close: random(100, 400),
+      x: "Week 11", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "Week 12", open: random(100, 400), close: random(100, 400),
+      x: "Week 12", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     }
   ],
   day: [
     {
-      x: "6:00am", open: random(100, 400), close: random(100, 400),
+      x: "6:00am", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "7:00am", open: random(100, 400), close: random(100, 400),
+      x: "7:00am", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "8:00am", open: random(100, 400), close: random(100, 400),
+      x: "8:00am", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "9:00am", open: random(100, 400), close: random(100, 400),
+      x: "9:00am", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "10:00am", open: random(100, 400), close: random(100, 400),
+      x: "10:00am", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "11:00am", open: random(100, 400), close: random(100, 400),
+      x: "11:00am", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "12:00pm", open: random(100, 400), close: random(100, 400),
+      x: "12:00pm", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "1:00pm", open: random(100, 400), close: random(100, 400),
+      x: "1:00pm", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "2:00pm", open: random(100, 400), close: random(100, 400),
+      x: "2:00pm", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "3:00pm", open: random(100, 400), close: random(100, 400),
+      x: "3:00pm", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "4:00pm", open: random(100, 400), close: random(100, 400),
+      x: "4:00pm", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "5:00pm", open: random(100, 400), close: random(100, 400),
+      x: "5:00pm", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "6:00pm", open: random(100, 400), close: random(100, 400),
+      x: "6:00pm", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "4:00pm", open: random(100, 400), close: random(100, 400),
+      x: "4:00pm", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     }
   ],
   hour: [
     {
-      x: "6:00am", open: random(100, 400), close: random(100, 400),
+      x: "6:00am", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "7:00am", open: random(100, 400), close: random(100, 400),
+      x: "7:00am", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "8:00am", open: random(100, 400), close: random(100, 400),
+      x: "8:00am", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "9:00am", open: random(100, 400), close: random(100, 400),
+      x: "9:00am", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "10:00am", open: random(100, 400), close: random(100, 400),
+      x: "10:00am", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "11:00am", open: random(100, 400), close: random(100, 400),
+      x: "11:00am", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "12:00pm", open: random(100, 400), close: random(100, 400),
+      x: "12:00pm", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "1:00pm", open: random(100, 400), close: random(100, 400),
+      x: "1:00pm", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "2:00pm", open: random(100, 400), close: random(100, 400),
+      x: "2:00pm", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "3:00pm", open: random(100, 400), close: random(100, 400),
+      x: "3:00pm", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "4:00pm", open: random(100, 400), close: random(100, 400),
+      x: "4:00pm", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "5:00pm", open: random(100, 400), close: random(100, 400),
+      x: "5:00pm", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     },
     {
-      x: "6:00pm", open: random(100, 400), close: random(100, 400),
+      x: "6:00pm", open: random(150, 350), close: random(150, 350),
       high: random(300, 400), low: random(100, 200), volume: random(0, 100)
     }
   ]
@@ -208,20 +208,21 @@ class CandlestickDashboard extends React.Component {
         <button onClick={this.onToggleWeek}>1wk</button>
         <button onClick={this.onToggleDay}>1d</button>
         <button onClick={this.onToggleHour}>1hr</button>
-        <svg style={{width: "100%", height: 1000}} viewBox="0 0 500 300">
+        <svg style={{width: "100%", height: 1500}} viewBox="0 0 500 300">
           <VictoryArea
-            data={this.state.data}
+            data={this.state.data.map((d) => merge({}, d,
+              {yOffset: (Math.min(d.open, d.close) + d.low) / 2}))}
             standalone={false}
-            x={"x"}
             domain={{y: [0, 400]}}
-            y={(d) => ((d.open + d.close + d.high + d.low) / 2)}
-            style={{data: {fill: "yellow"}}}
+            y={(d) => ((Math.max(d.open, d.close) + d.high) / 2)}
+            style={{data: {fill: "yellow", opacity: 0.5}}}
           />
           <VictoryBar
             data={this.state.data}
             standalone={false}
-            domain={{y: [0, 100]}}
+            domain={{y: [0, 400]}}
             y={"volume"}
+            style={{data: {fill: (d) => d.open > d.close ? "red" : "green"}}}
           />
           <VictoryAxis
             scale={"time"}
