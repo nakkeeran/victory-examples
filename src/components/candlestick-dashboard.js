@@ -6,9 +6,19 @@ import { random, merge, range } from "lodash";
 import { VictoryAxis, VictoryBar, VictoryArea } from "victory";
 
 const labels = {
-  hour: ["12:00am", "6:00am", "12:00pm", "6:00pm"],
+  hour: ["12:00am", "6:00am", "12:00pm", "6:00pm", "11:00pm"],
   week: ["Week 1", "Week 13", "Week 26"],
   day: ["Day 1", "Day 10", "Day 20", "Day 30", "Day 40", "Day 50", "Day 60"]
+};
+
+const buttonStyle = {
+  padding: 10,
+  margin: "20px 10px",
+  backgroundColor: "white",
+  border: "none",
+  width: 60,
+  height: 60,
+  textAlign: "center"
 };
 
 class CandlestickDashboard extends React.Component {
@@ -78,10 +88,18 @@ class CandlestickDashboard extends React.Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.onToggleWeek}>1wk</button>
-        <button onClick={this.onToggleDay}>1d</button>
-        <button onClick={this.onToggleHour}>1hr</button>
+      <div
+        style={{width: "100%",
+          height: "100%",
+          backgroundColor: "black",
+          textAlign: "center",
+          margin: "0 auto"}}
+      >
+        <div style={{margin: "0 auto", textAlign: "center", width: 500}}>
+          <button style={buttonStyle} onClick={this.onToggleWeek}>1wk</button>
+          <button style={buttonStyle} onClick={this.onToggleDay}>1d</button>
+          <button style={buttonStyle} onClick={this.onToggleHour}>1hr</button>
+        </div>
         <svg style={{width: 1200, height: 1000}} viewBox="0 0 500 300">
           <VictoryArea
             data={this.state.data.map((d) => merge({}, d,
@@ -96,13 +114,14 @@ class CandlestickDashboard extends React.Component {
             standalone={false}
             domain={{y: [0, 400]}}
             y={"volume"}
-            style={{data: {fill: (d) => d.open > d.close ? "red" : "green",
+            style={{data: {fill: (d) => d.open > d.close ? "red" : "aqua",
             width: 5}}}
           />
           <VictoryAxis
             scale={"time"}
             standalone={false}
             tickValues={this.state.labels}
+            style={{axis: {stroke: "white"}, ticks: {stroke: "white"}, tickLabels: {fill: "white"}}}
           />
         </svg>
       </div>
