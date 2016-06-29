@@ -6,9 +6,9 @@ import { random, merge, range } from "lodash";
 import { VictoryAxis, VictoryBar, VictoryArea } from "victory";
 
 const labels = {
-  hour: ["6:00am", "12:00pm", "6:00pm"],
-  week: ["Week 1", "Week 4", "Week 8", "Week 12"],
-  day: ["Day 1", "Day 7", "Day 14"]
+  hour: ["12:00am", "6:00am", "12:00pm", "6:00pm"],
+  week: ["Week 1", "Week 13", "Week 26"],
+  day: ["Day 1", "Day 10", "Day 20", "Day 30", "Day 40", "Day 50", "Day 60"]
 };
 
 class CandlestickDashboard extends React.Component {
