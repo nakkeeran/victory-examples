@@ -27,7 +27,8 @@ class CandlestickDashboard extends React.Component {
     this.state = {
       period: "hour",
       data: this.generateHourData(),
-      labels: labels.hour
+      labels: labels.hour,
+      active: "hour"
     };
 
     this.onToggleDay = this.onToggleDay.bind(this);
@@ -75,18 +76,41 @@ class CandlestickDashboard extends React.Component {
   }
 
   onToggleWeek() {
-    this.setState({period: "week", data: this.generateWeekData(), labels: labels.week});
+    this.setState({
+      period: "week",
+      data: this.generateWeekData(),
+      labels: labels.week,
+      active: "week"});
   }
 
   onToggleDay() {
-    this.setState({period: "day", data: this.generateDayData(), labels: labels.day});
+    this.setState({
+      period: "day",
+      data: this.generateDayData(),
+      labels: labels.day,
+      active: "day"});
   }
 
   onToggleHour() {
-    this.setState({period: "day", data: this.generateHourData(), labels: labels.hour});
+    this.setState({
+      period: "day",
+      data: this.generateHourData(),
+      labels: labels.hour,
+      active: "hour"});
   }
 
   render() {
+    const isHour = this.state.active === "hour" ? true : false;
+    const isWeek = this.state.active === "week" ? true : false;
+    const isDay = this.state.active === "day" ? true : false;
+
+    const hourStyle = merge({}, buttonStyle,
+      {backgroundColor: isHour ? "aqua" : "white", color: isHour ? "white" : "black"});
+    const weekStyle = merge({}, buttonStyle,
+      {backgroundColor: isWeek ? "aqua" : "white", color: isWeek ? "white" : "black"});
+    const dayStyle = merge({}, buttonStyle,
+      {backgroundColor: isDay ? "aqua" : "white", color: isDay ? "white" : "black"});
+
     return (
       <div
         style={{width: "100%",
@@ -96,9 +120,9 @@ class CandlestickDashboard extends React.Component {
           margin: "0 auto"}}
       >
         <div style={{margin: "0 auto", textAlign: "center", width: 500}}>
-          <button style={buttonStyle} onClick={this.onToggleWeek}>1wk</button>
-          <button style={buttonStyle} onClick={this.onToggleDay}>1d</button>
-          <button style={buttonStyle} onClick={this.onToggleHour}>1hr</button>
+          <button style={weekStyle} onClick={this.onToggleWeek}>1wk</button>
+          <button style={dayStyle} onClick={this.onToggleDay}>1d</button>
+          <button style={hourStyle} onClick={this.onToggleHour}>1hr</button>
         </div>
         <svg style={{width: 1200, height: 1000}} viewBox="0 0 500 300">
           <VictoryArea
