@@ -1,7 +1,7 @@
 Victory Examples
 =================
 
-Welcome to the next level of [Victory](github.com/FormidableLabs/victory)! If you are not already familiar, please get to know our [Victory Docs](http://formidable.com/open-source/victory/) first. More complicated examples will live here and will assume a basic understanding of Victory.
+Welcome to the next level of [Victory](https://github.com/FormidableLabs/victory)! If you are not already familiar, please get to know our [Victory Docs](http://formidable.com/open-source/victory/) first. More complicated examples will live here and will assume a basic understanding of Victory.
 
 ## Get Started
 

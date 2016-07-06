@@ -91,6 +91,11 @@ class Nav extends React.Component {
             </RadiumLink>
           </li>
           <li style={styles.listItem}>
+            <RadiumLink to="shared-events" activeStyle={styles.active} style={styles.link}>
+              Shared Events
+            </RadiumLink>
+          </li>
+          <li style={styles.listItem}>
             <RadiumLink to="candlestick-dashboard" activeStyle={styles.active} style={styles.link}>
               Candlestick Dashboard
             </RadiumLink>
