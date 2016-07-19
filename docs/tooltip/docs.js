@@ -1,10 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Ecology from "ecology";
-import { merge } from "lodash";
 import Radium, { Style } from "radium";
 import { VictoryChart, VictoryArea, VictoryAxis, VictoryScatter, VictoryLabel } from "victory";
-import { VictoryTheme, appendLinkIcon, ecologyPlaygroundLoading } from "formidable-landers";
+import { VictoryTheme, ecologyPlaygroundLoading } from "formidable-landers";
 
 class TooltipTutorial extends React.Component {
   /* eslint-disable max-len */
@@ -23,7 +22,7 @@ class TooltipTutorial extends React.Component {
             VictoryLabel
           }}
           playgroundtheme="elegant"
-          customRenderers={merge(appendLinkIcon, ecologyPlaygroundLoading)}
+          customRenderers={ecologyPlaygroundLoading}
         />
         <Style rules={VictoryTheme}/>
       </div>
