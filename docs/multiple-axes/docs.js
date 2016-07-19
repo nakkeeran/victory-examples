@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Ecology from "ecology";
-import { merge } from "lodash";
 import Radium, { Style } from "radium";
 import { VictoryAxis, VictoryLine } from "victory";
 import { VictoryTheme, ecologyPlaygroundLoading } from "formidable-landers";

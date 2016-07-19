@@ -1,5 +1,6 @@
 Multiple Axes
 =============
+
 ```playground_norender
 class MultipleAxes extends React.Component {
   getStyles() {

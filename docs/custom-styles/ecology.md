@@ -1,3 +1,8 @@
+Custom Styles
+=============
+The following chart has multiple axes, a time axis, and a very specific look.
+
+```playground_norender
 class CustomTheme extends React.Component {
   getDataSetOne() {
     return [
@@ -339,3 +344,5 @@ class CustomTheme extends React.Component {
 }
 
 ReactDOM.render(<CustomTheme/>, mountNode)
+
+```
