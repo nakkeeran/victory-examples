@@ -1,3 +1,9 @@
+Tooltip
+=============
+
+A custom tooltip is achieved by creating a `Flyout` React component and passing it as `labelComponent` to `VictoryScatter`.
+
+```playground_norender
 class Flyout extends React.Component {
   static propTypes = {
     active: React.PropTypes.bool
@@ -152,3 +158,5 @@ class Tooltip extends React.Component {
 }
 
 ReactDOM.render(<Tooltip/>, mountNode)
+
+```
