@@ -17,6 +17,7 @@ class App extends React.Component {
           <li><Link to="/custom-styles">Custom Styles</Link></li>
           <li><Link to="/multiple-axes">Multiple Axes</Link></li>
           <li><Link to="/tooltip">Tooltip</Link></li>
+          <li><Link to="/shared-events">Shared Events</Link></li>
         </ul>
         {this.props.children}
         <Style rules={VictoryTheme}/>
