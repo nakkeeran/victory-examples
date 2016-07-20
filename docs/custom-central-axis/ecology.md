@@ -1,3 +1,7 @@
+Custom Central Axis
+=============
+
+```playground_norender
 class CentralAxis extends React.Component {
   render() {
     return (
@@ -90,3 +94,5 @@ class CentralAxis extends React.Component {
 }
 
 ReactDOM.render(<CentralAxis/>, mountNode)
+
+```

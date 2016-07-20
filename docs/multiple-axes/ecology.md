@@ -1,3 +1,7 @@
+Multiple Axes
+=============
+
+```playground_norender
 class MultipleAxes extends React.Component {
   getStyles() {
     return {
@@ -96,3 +100,5 @@ class MultipleAxes extends React.Component {
 }
 
 ReactDOM.render(<MultipleAxes/>, mountNode)
+
+```

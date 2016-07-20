@@ -1,3 +1,7 @@
+Custom Data Component
+=============
+
+```playground_norender
 class CustomPie extends React.Component {
   static propTypes = {
     datum: React.PropTypes.object,
@@ -113,3 +117,5 @@ class CustomDataComponent extends React.Component {
 }
 
 ReactDOM.render(<CustomDataComponent/>, mountNode)
+
+```
