@@ -13,6 +13,7 @@ import CustomDataComponent from "./custom-data-component/docs";
 import CustomStyles from "./custom-styles/docs";
 import MultipleAxes from "./multiple-axes/docs";
 import Tooltip from "./tooltip/docs";
+import SharedEvents from "./shared-events/docs";
 
 const content = document.getElementById("content");
 
@@ -27,6 +28,7 @@ render((
       <Route path="custom-styles" component={CustomStyles}/>
       <Route path="multiple-axes" component={MultipleAxes}/>
       <Route path="tooltip" component={Tooltip}/>
+      <Route path="shared-events" component={SharedEvents}/>
     </Route>
   </Router>
 ), content);
