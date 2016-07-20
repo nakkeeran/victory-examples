@@ -1,12 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Ecology from "ecology";
-import Radium, { Style } from "radium";
 import { VictoryAxis, VictoryLine } from "victory";
-import { VictoryTheme, ecologyPlaygroundLoading } from "formidable-landers";
+import { ecologyPlaygroundLoading } from "formidable-landers";
 
-class MultipleAxesTutorial extends React.Component {
-  /* eslint-disable max-len */
+export default class MultipleAxesTutorial extends React.Component {
   render() {
     return (
       <div className="Recipe">
@@ -21,11 +19,7 @@ class MultipleAxesTutorial extends React.Component {
           playgroundtheme="elegant"
           customRenderers={ecologyPlaygroundLoading}
         />
-        <Style rules={VictoryTheme}/>
       </div>
     );
   }
-  /* eslint-enable max-len */
 }
-
-export default Radium(MultipleAxesTutorial); //eslint-disable-line new-cap

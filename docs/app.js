@@ -5,14 +5,9 @@
 import React from "react";
 import { Link } from "react-router";
 import { StyleRoot, Style } from "radium";
-
 import { VictoryTheme } from "formidable-landers";
 
-const App = React.createClass({
-  propTypes: {
-    children: React.PropTypes.element
-  },
-
+class App extends React.Component {
   render() {
     return (
       <StyleRoot>
@@ -28,6 +23,10 @@ const App = React.createClass({
       </StyleRoot>
     );
   }
-});
+}
+
+App.propTypes = {
+  children: React.PropTypes.element
+};
 
 export default App;

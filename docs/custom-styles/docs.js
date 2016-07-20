@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Ecology from "ecology";
-import Radium, { Style } from "radium";
 import { VictoryAxis, VictoryLine } from "victory-chart";
 import { VictoryLabel } from "victory-core";
-import { VictoryTheme, ecologyPlaygroundLoading } from "formidable-landers";
+import { ecologyPlaygroundLoading } from "formidable-landers";
 
-class CustomStylesTutorial extends React.Component {
+export default class CustomStylesTutorial extends React.Component {
   render() {
     return (
       <div className="Recipe">
@@ -22,10 +21,7 @@ class CustomStylesTutorial extends React.Component {
           playgroundtheme="elegant"
           customRenderers={ecologyPlaygroundLoading}
         />
-        <Style rules={VictoryTheme}/>
       </div>
     );
   }
 }
-
-export default Radium(CustomStylesTutorial); //eslint-disable-line new-cap
